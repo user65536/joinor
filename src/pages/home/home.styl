@@ -1,5 +1,7 @@
 color-head = #787880
 color-title = #3b3b41
+color-viceTitle = #858587
+color-el = #616165
 .wrapper
   .top-bg
     width 375px
@@ -11,13 +13,17 @@ color-title = #3b3b41
   .bottom-wrap
     box-sizing border-box
     width 375px
-    padding 0 7vw
+    padding 78px 7vw 0
     background-color #faf8f8
     border-radius 18px 18px 0px 0px
     transform translateY(-45px)
     .content-ts
-      transform translateY(-190px)
+      position relative
       .head-wrap
+        transform translateY(-268px)
+        position absolute
+        left 0
+        right 0
         .header
           margin-top 24px
           display flex
@@ -64,6 +70,54 @@ color-title = #3b3b41
                 transition width .2s linear
                 &.active
                   width 11px
+      .activity-wrap
+        // margin-top 78px
+        .activity-list
+          .activity-item
+            .item-wrap
+              display flex
+              padding 16px 0
+              border-bottom 1px solid #cdc9ca
+              .left-img
+                flex 0 0 75px
+                height 105px
+                background-color purple
+                img 
+                  height 100%
+                  width 100%
+              .right-info
+                flex 1 0 200px
+                margin-left 15px
+                position relative
+                display flex
+                flex-direction column
+                justify-content space-between
+                .title-wrap
+                  .title
+                    font-size 16px
+                    color color-title
+                  .vice-title
+                    font-size 14px
+                    color color-viceTitle
+                .else-wrap
+                  .el-info
+                    font-size 11px
+                    color color-el
+                .join
+                  position absolute
+                  bottom 0
+                  right 0
+                  width 54px
+                  height 25px
+                  border-radius 25px
+                  background-image linear-gradient(135deg, #ff89a6 0%, #ca5752 100%)
+                  color #ffffff
+                  font-size 11px
+                  line-height 25px
+                  letter-spacing 1px
+                  border none
+
+
 
 
 
