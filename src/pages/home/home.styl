@@ -1,0 +1,75 @@
+color-head = #787880
+color-title = #3b3b41
+.wrapper
+  .top-bg
+    width 375px
+    height 235px
+    background-color #ADB4D5
+    img 
+      width 100%
+      height 100%
+  .bottom-wrap
+    box-sizing border-box
+    width 375px
+    padding 0 7vw
+    background-color #faf8f8
+    border-radius 18px 18px 0px 0px
+    transform translateY(-45px)
+    .content-ts
+      transform translateY(-190px)
+      .head-wrap
+        .header
+          margin-top 24px
+          display flex
+          justify-content space-between
+          .location
+            .iconfont, .place
+              font-size 14px
+              color color-head
+            .place 
+              margin-left 4px
+          .search
+            .iconfont
+              color color-head
+              font-size 18px
+        .banner-wrap
+          .list-wrap
+            margin-top 15px
+            .banner-list
+              display flex
+              height 100%
+              &.banner-with-transition
+                transition transform .2s linear
+              .banner-item
+                flex 0 0 86vw
+                background gray
+                margin-right 8vw
+                border-radius 7px
+                height 190px
+                overflow hidden
+                img 
+                  width 100%
+                  height 100%
+          .spot 
+            margin-top 5px
+            .spot-list
+              display flex
+              justify-content center
+              .spot-item
+                width 4px
+                height 4px
+                margin 0 1px
+                background-color #bfbfbf
+                border-radius 2px
+                transition width .2s linear
+                &.active
+                  width 11px
+
+
+
+
+
+
+
+
+
