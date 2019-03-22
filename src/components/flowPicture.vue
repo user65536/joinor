@@ -40,32 +40,20 @@ export default {
   props: ["bannerList"],
   methods: {
     flash(direction) {
-      let len = this.bannerList.length + 1;
       if(this.bannerLock) {
         return false
       }
-      if(direction) { //right
-        if(this.bannerIndex === this.bannerList.length) {
-          this.bannerIndex = 0
-        }
-        // setTimeout(() => {
-        //   this.bannerLastIndex = this.bannerIndex
-        //   this.bannerIndex ++
-        // }, 100)
+      if(!direction) { //right
+        this.bannerIndex ++
       } else {//left
-        if(this.bannerIndex === 0) {
-          this.bannerIndex = this.bannerList.length
-        }
         this.bannerIndex --
       }  
     },
     bannerTransitionEnd() {
       this.bannerLock = false
-      // if(this.bannerIndex === this.bannerList.length) {
-      //   this.bannerIndex = 0
-      // } else if(this.bannerIndex === 0) {
-      //   this.bannerIndex = this.bannerList.length
-      // }
+      if(this.bannerIndex === this.bannerList.length) {
+        this.bannerIndex = 0
+      }
     }
   },
   computed: {
@@ -74,21 +62,24 @@ export default {
     },
     withTransition () {
       // console.log('cha',Math.abs(this.bannerLastIndex - this.bannerIndex))
-      if(Math.abs(this.bannerLastIndex - this.bannerIndex) > 1) {
+      // if(Math.abs(this.bannerLastIndex - this.bannerIndex) > 1) {
+      //   return ''
+      // } else {
+      //   this.bannerLock = true
+      //   return 'banner-with-transition'
+      // }
+      if(this.bannerIndex === 0) {
         return ''
       } else {
-        this.bannerLock = true
         return 'banner-with-transition'
+
       }
     }
   },
   created() {
-    // setInterval(() => {
-    //   this.flash(true)
-    // }, 2000)
-  },
-  updated() {
-    console.log(this.bannerIndex)
+    setInterval(() => {
+      this.flash()
+    }, 2000)
   }
 }
 </script>
