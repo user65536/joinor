@@ -16,26 +16,7 @@
             </div>
           </div>
           <div class="banner-wrap">
-            <div class="list-wrap">
-              <ul @transitionend="bannerTransitionEnd" :style="transformPic" :class="withTransition" class="banner-list">
-                <block  v-for="(item, index) in bannerList" :key="index">
-                  <li class="banner-item">
-                    <img :src="item.url" alt="">
-                  </li>
-                </block>
-                <li class="banner-item">
-                  <img :src="bannerList[0].url" alt="">
-                </li>
-              </ul>
-            </div>
-            <div class="spot">
-              <ul class="spot-list">
-                <li v-for="(item, index) in bannerList" 
-                :key="index" class="spot-item" 
-                :class="bannerIndex === index || (index === 0 && bannerIndex === bannerList.length)? 'active' : ''">
-                </li>
-              </ul>
-            </div>
+            <flowPicture :bannerList="bannerList"></flowPicture>
           </div>
         </div>
         <div class="activity-wrap">
@@ -70,11 +51,13 @@
 </template>
 
 <script>
+import flowPicture from '@/components/flowPicture.vue'
 export default {
   data() {
     return {
       place: '北邮沙河',
       bannerIndex: 0,
+      bannerLastIndex: 0,
       bannerLock: false,
       bannerList: [
         {
@@ -87,6 +70,10 @@ export default {
         },
         {
           url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553149934565&di=567eed359dcf8551e1c009ad2e4f46d7&imgtype=0&src=http%3A%2F%2F00.minipic.eastday.com%2F20170411%2F20170411212923_f3b93bece00e4178f3bc684240278d9a_5.jpeg',
+          to: ''
+        },
+          {
+          url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553172444837&di=2487a11ef717cb5ec00c466e2da28a51&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F8b82b9014a90f6037cb445933312b31bb151edda.jpg',
           to: ''
         }
       ],
@@ -121,32 +108,64 @@ export default {
       ]
     }
   },
-  methods: {
-    add() {
-      if(!this.bannerLock) {
-        this.bannerIndex++
-        this.bannerLock = true
-      }
-    },
-    bannerTransitionEnd() {
-      this.bannerLock = false
-      if(this.bannerIndex === this.bannerList.length) {
-        this.bannerIndex = 0
-      }
-    }
-  },
-  computed: {
-    transformPic () {
-      return `transform: translateX(-${this.bannerIndex*94}vw);`
-    },
-    withTransition () {
-      if(this.bannerIndex === 0) {
-        return ''
-      } else {
-        return 'banner-with-transition'
-      }
-    }
+  components: {
+    flowPicture
   }
+  // methods: {
+  //   flash(direction) {
+  //     let num = direction ? 1 : -1;
+  //     let len = this.bannerList.length + 1;
+  //     if(this.bannerLock) {
+  //       return false
+  //     }
+  //     if(direction) { //right
+  //       if(this.bannerIndex === this.bannerList.length) {
+  //         this.bannerIndex = 0
+  //       }
+  //       setTimeout(() => {
+  //         this.bannerLastIndex = this.bannerIndex
+  //         this.bannerIndex ++
+  //         console.log(this.bannerIndex)
+  //       }, 100)
+  //     } else {//left
+  //       if(this.bannerIndex === 0) {
+  //         this.bannerIndex = this.bannerList.length
+  //       }
+  //       this.bannerIndex --
+  //     }
+      
+  //     // this.bannerIndex = this.bannerIndex + num
+      
+       
+  //   },
+  //   bannerTransitionEnd() {
+  //     this.bannerLock = false
+  //     // if(this.bannerIndex === this.bannerList.length) {
+  //     //   this.bannerIndex = 0
+  //     // } else if(this.bannerIndex === 0) {
+  //     //   this.bannerIndex = this.bannerList.length
+  //     // }
+  //   }
+  // },
+  // computed: {
+  //   transformPic () {
+  //     return `transform: translateX(-${this.bannerIndex*94}vw);`
+  //   },
+  //   withTransition () {
+  //     // console.log('cha',Math.abs(this.bannerLastIndex - this.bannerIndex))
+  //     if(Math.abs(this.bannerLastIndex - this.bannerIndex) > 1) {
+  //       return ''
+  //     } else {
+  //       this.bannerLock = true
+  //       return 'banner-with-transition'
+  //     }
+  //   }
+  // },
+  // created() {
+  //   let flashTimer = setInterval(() => {
+  //     this.flash(true)
+  //   }, 5000)
+  // }
 }
 </script>
 
