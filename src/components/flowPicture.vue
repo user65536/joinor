@@ -109,11 +109,11 @@ export default {
       display flex
       justify-content center
       .spot-item
-        width 4px
-        height 4px
+        width 4PX
+        height 4PX
         margin 0 1px
         background-color #bfbfbf
-        border-radius 2px
+        border-radius 2PX
         transition width .2s linear
         &.active
           width 11px
