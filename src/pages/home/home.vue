@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="banner-wrap">
-            <flowPicture :bannerList="bannerList"></flowPicture>
+            <flow-picture :banner-list="bannerList"></flow-picture>
           </div>
         </div>
         <div class="activity-wrap">
@@ -46,12 +46,15 @@
         </div>
       </div>
     </div>
-    <div class="nav-bar"></div>
+    <div class="tab-bar">
+      <tab-bar @tabchange="tabchange" :active="0"></tab-bar>
+    </div>
   </div>
 </template>
 
 <script>
-import flowPicture from '@/components/flowPicture.vue'
+import tabBar from '@/components/tabbar'
+import flowPicture from '@/components/flowPicture'
 export default {
   data() {
     return {
@@ -109,7 +112,13 @@ export default {
     }
   },
   components: {
-    flowPicture
+    flowPicture,
+    tabBar
+  },
+  methods: {
+    tabchange(e) {
+      console.log(e)
+    }
   }
 }
 </script>
