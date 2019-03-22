@@ -111,61 +111,6 @@ export default {
   components: {
     flowPicture
   }
-  // methods: {
-  //   flash(direction) {
-  //     let num = direction ? 1 : -1;
-  //     let len = this.bannerList.length + 1;
-  //     if(this.bannerLock) {
-  //       return false
-  //     }
-  //     if(direction) { //right
-  //       if(this.bannerIndex === this.bannerList.length) {
-  //         this.bannerIndex = 0
-  //       }
-  //       setTimeout(() => {
-  //         this.bannerLastIndex = this.bannerIndex
-  //         this.bannerIndex ++
-  //         console.log(this.bannerIndex)
-  //       }, 100)
-  //     } else {//left
-  //       if(this.bannerIndex === 0) {
-  //         this.bannerIndex = this.bannerList.length
-  //       }
-  //       this.bannerIndex --
-  //     }
-      
-  //     // this.bannerIndex = this.bannerIndex + num
-      
-       
-  //   },
-  //   bannerTransitionEnd() {
-  //     this.bannerLock = false
-  //     // if(this.bannerIndex === this.bannerList.length) {
-  //     //   this.bannerIndex = 0
-  //     // } else if(this.bannerIndex === 0) {
-  //     //   this.bannerIndex = this.bannerList.length
-  //     // }
-  //   }
-  // },
-  // computed: {
-  //   transformPic () {
-  //     return `transform: translateX(-${this.bannerIndex*94}vw);`
-  //   },
-  //   withTransition () {
-  //     // console.log('cha',Math.abs(this.bannerLastIndex - this.bannerIndex))
-  //     if(Math.abs(this.bannerLastIndex - this.bannerIndex) > 1) {
-  //       return ''
-  //     } else {
-  //       this.bannerLock = true
-  //       return 'banner-with-transition'
-  //     }
-  //   }
-  // },
-  // created() {
-  //   let flashTimer = setInterval(() => {
-  //     this.flash(true)
-  //   }, 5000)
-  // }
 }
 </script>
 
