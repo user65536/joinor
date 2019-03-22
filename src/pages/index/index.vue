@@ -67,7 +67,7 @@ export default {
   },
 
   created () {
-    console.log("index created")
+    // console.log("index created")
     // let app = getApp()
   }
 }
