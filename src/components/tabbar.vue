@@ -40,11 +40,13 @@ export default {
     flex 1 0 10px
     height 43px
     background-color #ffffff
+    z-index 0
     .iconfont
       font-size 20px
     .text
       font-size 10px
     &.active
+      z-index 10
       .iconfont,.text
         color #D86468
   .left-tab
