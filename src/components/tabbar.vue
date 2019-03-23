@@ -43,8 +43,10 @@ export default {
     z-index 0
     .iconfont
       font-size 20px
+      color #b8b2b3
     .text
       font-size 10px
+      color #b8b2b3
     &.active
       z-index 10
       .iconfont,.text
