@@ -40,16 +40,18 @@
           </div>
         </div>
         <div class="ticket-vice">
-          <div class="join">立即报名</div>
-          <!-- <div class="code">
+          <!-- <div class="join">立即报名</div> -->
+          <div class="code">
             <div class="qrcode">
-              <img src="" alt="">
+              <img src="https://www.meansky.cn/picture/qr.png" alt="">
             </div>
             <div class="barcode">
-              <img src="" alt="">
-              <div class="number"></div>
+              <div class="bar-img">
+                <img src="https://www.meansky.cn/picture/bar.jpg" alt="">
+              </div>
+              <div class="number">1903181439</div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
