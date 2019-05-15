@@ -53,6 +53,7 @@ export default {
   methods: {
     tabchange (index) {
       console.log(index)
+      const distPage = [null, null, null]
     }
   },
   components: {

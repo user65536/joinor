@@ -67,6 +67,9 @@ export default {
   },
   methods: {
     
+  },
+  mounted () {
+    console.log(this.$root.$mp.query)
   }
 }
 </script>

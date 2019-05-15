@@ -12,13 +12,13 @@
     <div class="bottom-wrap">
       <div class="content-wrap">
         <ul class="menu-list">
-          <li class="menu-item">
-            <div class="menu-name">我的报名</div>
+          <li @click="navigate('enrolled')" class="menu-item">
+            <div  class="menu-name">我的报名</div>
             <div class="right-icon">
               <span class="iconfont icon-right1"></span>
             </div>
           </li>
-          <li class="menu-item">
+          <li @click="navigate('released')" class="menu-item">
             <div class="menu-name">我是主办方</div>
             <div class="right-icon">
               <span class="iconfont icon-right1"></span>
@@ -41,6 +41,8 @@
 
 <script>
 import tabBar from '@/components/tabbar'
+
+import {route} from '@/utils/page'
 export default {
   data() {
     return {
@@ -49,7 +51,10 @@ export default {
   },
   methods: {
     tabchange(e) {
-      this.index = e
+      e == 0 && route.to('home', true)
+    },
+    navigate(page) {
+      route.to(page)
     }
   },
   components: {

@@ -37,7 +37,7 @@
                       <p class="time el-info">{{item.time}}</p>
                       <p class="host el-info">{{item.host}}</p>
                     </div>
-                    <button class="join" @click="add">报名</button>
+                    <button class="join" @click="navigate('detail', item.id)">报名</button>
                   </div>
                 </div>
               </li>
@@ -55,6 +55,7 @@
 <script>
 import tabBar from '@/components/tabbar'
 import flowPicture from '@/components/flowPicture'
+import {route} from '@/utils/page'
 export default {
   data() {
     return {
@@ -118,6 +119,11 @@ export default {
   methods: {
     tabchange(e) {
       console.log(e)
+      const distPage = [null, 'mine']
+      route.to(distPage[e], true)
+    },
+    navigate(page, id) {
+      route.queryTo(page, {id})
     }
   }
 }
