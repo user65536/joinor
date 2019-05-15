@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/home/main",
     "pages/released/main",
     "pages/enrolled/main",
     "pages/mine/main",
     "pages/detail/main",
-    "pages/home/main",
     "pages/index/main",
     "pages/logs/main",
     "pages/counter/main"
