@@ -25,6 +25,7 @@
 
 <script>
 import scanTab from '@/components/scanTab'
+import {route} from '@/utils/page'
 export default {
   data() {
     return {
@@ -52,8 +53,9 @@ export default {
   },
   methods: {
     tabchange (index) {
-      console.log(index)
-      const distPage = [null, null, null]
+      if(index === 2) {
+        route.to('new')
+      }
     }
   },
   components: {
