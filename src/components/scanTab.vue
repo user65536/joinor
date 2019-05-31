@@ -11,7 +11,7 @@
         </div>
         <div class="middle">
           <div @click="tabchange(1)" class="btn">
-            <span class="iconfont icon-saomiao"></span>
+            <span class="iconfont" :class=" active === 0 ? 'icon-saomiao' : 'icon-fabu'"></span>
           </div>
         </div>
         <div @click="tabchange(2)" class="right tab-item" :class="active === 2 ? 'active' : ''">
