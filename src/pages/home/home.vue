@@ -25,17 +25,17 @@
               <li class="activity-item">
                 <div class="item-wrap">
                   <div class="left-img">
-                    <img :src="item.img" alt="">
+                    <img :src="item.poster" alt="">
                   </div>
                   <div class="right-info">
                     <div class="title-wrap">
                       <p class="title">{{item.title}}</p>
-                      <p class="vice-title">{{item.viceTitle}}</p>
+                      <p class="vice-title">{{item.subtitle}}</p>
                     </div>
                     <div class="else-wrap">
                       <p class="location el-info">{{item.location}}</p>
-                      <p class="time el-info">{{item.time}}</p>
-                      <p class="host el-info">{{item.host}}</p>
+                      <p class="time el-info">{{item.start_time}}</p>
+                      <p class="host el-info">{{item.organizer}}</p>
                     </div>
                     <button class="join" @click="navigate('detail', item.id)">报名</button>
                   </div>
@@ -56,6 +56,7 @@
 import tabBar from '@/components/tabbar'
 import flowPicture from '@/components/flowPicture'
 import {route} from '@/utils/page'
+import service from '@/utils/service'
 export default {
   data() {
     return {
@@ -84,30 +85,21 @@ export default {
       activityList: [
         {
           id: '0',
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553165620324&di=f9d506fff3f67563309f4e40bbd20984&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb90e7bec54e736d1707aa12f91504fc2d56269af.jpg',
+          poster: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553165620324&di=f9d506fff3f67563309f4e40bbd20984&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb90e7bec54e736d1707aa12f91504fc2d56269af.jpg',
           title: '青春心向党,建功新时代',
-          viceTitle: '以团之名,集卡有你',
+          subtitle: '以团之名,集卡有你',
           location: '沙河小区小广场',
-          time: '3-06 12:00',
-          host: '女生部',
+          start_time: '3-06 12:00',
+          organizer: '女生部',
         },
         {
           id: '1',
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553165620324&di=f9d506fff3f67563309f4e40bbd20984&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb90e7bec54e736d1707aa12f91504fc2d56269af.jpg',
+          poster: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553165620324&di=f9d506fff3f67563309f4e40bbd20984&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb90e7bec54e736d1707aa12f91504fc2d56269af.jpg',
           title: '青春心向党,建功新时代',
-          viceTitle: '以团之名,集卡有你',
+          subtitle: '以团之名,集卡有你',
           location: '沙河小区小广场',
-          time: '3-06 12:00',
-          host: '女生部',
-        },
-        {
-          id: '2',
-          img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553165620324&di=f9d506fff3f67563309f4e40bbd20984&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fb90e7bec54e736d1707aa12f91504fc2d56269af.jpg',
-          title: '青春心向党,建功新时代',
-          viceTitle: '以团之名,集卡有你',
-          location: '沙河小区小广场',
-          time: '3-06 12:00',
-          host: '女生部',
+          start_time: '3-06 12:00',
+          organizer: '女生部',
         },
       ]
     }
@@ -125,6 +117,14 @@ export default {
     navigate(page, id) {
       route.queryTo(page, {id})
     }
+  },
+  mounted() {
+    service.getActionList(0, 5).then( list => {
+      this.activityList = list
+      console.log(this.activityList)
+    }).catch(() => {
+
+    })
   }
 }
 </script>
