@@ -1,4 +1,5 @@
 <script>
+import service from './utils/service'
 export default {
   created () {
     // console.log("app created`")
@@ -11,19 +12,26 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
-      })
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
-    }
+    // let logs
+    // if (mpvuePlatform === 'my') {
+    //   logs = mpvue.getStorageSync({key: 'logs'}).data || []
+    //   logs.unshift(Date.now())
+    //   mpvue.setStorageSync({
+    //     key: 'logs',
+    //     data: logs
+    //   })
+    // } else {
+    //   logs = mpvue.getStorageSync('logs') || []
+    //   logs.unshift(Date.now())
+    //   mpvue.setStorageSync('logs', logs)
+    // }
+    mpvue.login({
+      success: function ({code}) {
+        service.login(code).then(res => {
+          console.log(res)
+        }).catch(console.log)
+      }
+    })
   },
   log () {
     console.log(`log at:${Date.now()}`)
