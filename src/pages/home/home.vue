@@ -110,7 +110,6 @@ export default {
   },
   methods: {
     tabchange(e) {
-      console.log(e)
       const distPage = [null, 'mine']
       route.to(distPage[e], true)
     },
@@ -121,7 +120,6 @@ export default {
   mounted() {
     service.getActionList(0, 5).then( list => {
       this.activityList = list
-      console.log(this.activityList)
     }).catch(() => {
 
     })
