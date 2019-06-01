@@ -18,7 +18,7 @@ export default function ({url, method="GET", data}) {
         "Content-Type": contentType,
         "Cookie": cookie.get()
       },
-      data: JSON.stringify(data),
+      data: data,
       success:  ({data, header}) => {
         header["Set-Cookie"] && cookie.set(header["Set-Cookie"])
         resolve(data)
